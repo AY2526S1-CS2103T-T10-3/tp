@@ -29,7 +29,7 @@ public class ArgumentTokenizer {
     }
 
     /**
-     * Finds all zero-based prefix positions in the given arguments string.
+     * Finds all zero-based prefix position in the given arguments string.
      *
      * @param argsString Arguments string of the form: {@code preamble <prefix>value <prefix>value ...}
      * @param prefixes   Prefixes to find in the arguments string
