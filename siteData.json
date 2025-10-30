@@ -145,6 +145,7 @@
         "adding-attendance-addattendance": "Adding attendance : addattendance",
         "marking-attendance-markattendance": "Marking attendance : markattendance",
         "removing-attendance-removeattendance": "Removing attendance : removeattendance",
+        "unmarking-attendance-unmarkattendance": "Unmarking attendance : unmarkattendance",
         "viewing-attendees-viewattendees": "Viewing attendees : viewattendees",
         "showing-attendance-summary-showattendance": "Showing attendance summary : showattendance",
         "tasks-addtask-deletetask-marktask-unmarktask": "Tasks : addtask, deletetask, marktask, unmarktask",
