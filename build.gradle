@@ -73,9 +73,6 @@ dependencies {
 shadowJar {
     archiveFileName = 'clubhub.jar'
 }
-run{
-    enableAssertions = true;
-}
 
 tasks.withType(JavaExec) {
     jvmArgs '-ea'
