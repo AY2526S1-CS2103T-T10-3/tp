@@ -86,9 +86,17 @@ public class AddEventCommandParserTest {
             "Date should be in YYYY-MM-DD format (e.g., 2025-07-05 — leading zeros are required)");
 
 
-        // invalid description
+        // invalid description - too long
         assertParseFailure(parser, EVENT_ID_DESC_EVENT1 + DATE_DESC_EVENT1 + INVALID_DESCRIPTION_DESC,
                 "Description should not exceed 100 characters");
+
+        // invalid description - empty
+        assertParseFailure(parser, EVENT_ID_DESC_EVENT1 + DATE_DESC_EVENT1 + " " + PREFIX_DESCRIPTION,
+                "Description should not be empty");
+
+        // invalid description - only whitespace
+        assertParseFailure(parser, EVENT_ID_DESC_EVENT1 + DATE_DESC_EVENT1 + " " + PREFIX_DESCRIPTION + "   ",
+                "Description should not be empty");
 
         // two invalid values, only first invalid value reported
         assertParseFailure(parser, INVALID_EVENT_ID_DESC + INVALID_DATE_DESC + DESCRIPTION_DESC_EVENT1,

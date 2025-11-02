@@ -170,4 +170,39 @@ public class ParserUtilTest {
 
         assertEquals(expectedTagSet, actualTagSet);
     }
+
+    @Test
+    public void parseDescription_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseDescription((String) null));
+    }
+
+    @Test
+    public void parseDescription_empty_throwsParseException() {
+        assertThrows(ParseException.class, "Description should not be empty", () -> ParserUtil.parseDescription(""));
+    }
+
+    @Test
+    public void parseDescription_onlyWhitespace_throwsParseException() {
+        assertThrows(ParseException.class, "Description should not be empty", () -> ParserUtil.parseDescription("   "));
+    }
+
+    @Test
+    public void parseDescription_tooLong_throwsParseException() {
+        String longDescription = "a".repeat(101);
+        assertThrows(ParseException.class, "Description should not exceed 100 characters", 
+            () -> ParserUtil.parseDescription(longDescription));
+    }
+
+    @Test
+    public void parseDescription_validValueWithoutWhitespace_returnsDescription() throws Exception {
+        String validDescription = "Christmas Event";
+        assertEquals(validDescription, ParserUtil.parseDescription(validDescription));
+    }
+
+    @Test
+    public void parseDescription_validValueWithWhitespace_returnsTrimmedDescription() throws Exception {
+        String descriptionWithWhitespace = WHITESPACE + "Christmas Event" + WHITESPACE;
+        String expectedDescription = "Christmas Event";
+        assertEquals(expectedDescription, ParserUtil.parseDescription(descriptionWithWhitespace));
+    }
 }
